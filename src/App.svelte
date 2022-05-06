@@ -1,32 +1,23 @@
 <script>
-  let firstName = "Jimi";
-  let lastName = "Hendrix";
-  let beltColor = "black";
-  //  Reactive values, like Vue's computed properties
-  $: fullName = `${firstName} ${lastName}`;
-  // Reactive statement, similar to reactive values
-  // $: console.log(beltColor);
-  // if any of the following values change, the code block re-runs
-  $: {
-    console.log(beltColor);
-    console.log(fullName);
-  }
-
-  const handleClick = () => {
-    beltColor = "orange";
-  };
-
-  const handleInput = (e) => {
-    beltColor = e.target.value;
-  };
+  //Svelte requires id for loops
+  let people = [
+    { name: "yoshi", beltColour: "black", age: 25, id: 1 },
+    { name: "mario", beltColour: "orange", age: 45, id: 2 },
+    { name: "luigi", beltColour: "brown", age: 35, id: 3 },
+  ];
 </script>
 
 <main>
-  <!-- Reactive values, like Vue's computed properties -->
-  <p>{fullName} {beltColor} belt</p>
-  <input type="text" bind:value={firstName} />
-  <input type="text" bind:value={lastName} />
-  <input type="text" bind:value={beltColor} />
+  <!-- Svelte loop template -->
+  {#each people as person (person.id)}
+    <div>
+      <h4>{person.name}</h4>
+      <p>{person.age} years old, {person.beltColor} belt.</p>
+    </div>
+    <!-- if there is no element in people -->
+  {:else}
+    <p>There are no people to show</p>
+  {/each}
 </main>
 
 <style>
