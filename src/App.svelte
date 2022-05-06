@@ -1,6 +1,17 @@
 <script>
-  let name = "Yoshi";
+  let firstName = "Jimi";
+  let lastName = "Hendrix";
   let beltColor = "black";
+  //  Reactive values, like Vue's computed properties
+  $: fullName = `${firstName} ${lastName}`;
+  // Reactive statement, similar to reactive values
+  // $: console.log(beltColor);
+  // if any of the following values change, the code block re-runs
+  $: {
+    console.log(beltColor);
+    console.log(fullName);
+  }
+
   const handleClick = () => {
     beltColor = "orange";
   };
@@ -11,10 +22,10 @@
 </script>
 
 <main>
-  <h1>Hello {name}!</h1>
-  <p style="color:{beltColor}">{beltColor} belt</p>
-  <button on:click={handleClick}>update belt color</button>
-  <!-- two way binding shorthand -->
+  <!-- Reactive values, like Vue's computed properties -->
+  <p>{fullName} {beltColor} belt</p>
+  <input type="text" bind:value={firstName} />
+  <input type="text" bind:value={lastName} />
   <input type="text" bind:value={beltColor} />
 </main>
 
