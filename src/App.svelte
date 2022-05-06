@@ -14,7 +14,8 @@
   <h1>Hello {name}!</h1>
   <p>{beltColor} belt</p>
   <button on:click={handleClick}>update belt color</button>
-  <input type="text" on:input={handleInput} />
+  <!-- two way binding -->
+  <input type="text" on:input={handleInput} value={beltColor} />
 </main>
 
 <style>
