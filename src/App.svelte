@@ -6,10 +6,11 @@
     { name: "luigi", beltColour: "brown", age: 35, id: 3 },
   ];
 
-  const handleClick = (id) => {
+  const handleClick = (e, id) => {
     //delete the person from people, if id not equal to selected, keep id, else, filter out
     //need to reassign people
     people = people.filter((el) => el.id !== id);
+    console.log(e);
   };
 </script>
 
@@ -21,8 +22,8 @@
       <p>{person.age} years old, {person.beltColor} belt.</p>
       <!-- here we use backpack to return a function without invoking it -->
       <button
-        on:click={() => {
-          handleClick(person.id);
+        on:click={(e) => {
+          handleClick(e, person.id);
         }}>delete</button
       >
     </div>
