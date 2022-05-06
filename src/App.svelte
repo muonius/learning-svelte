@@ -5,6 +5,12 @@
     { name: "mario", beltColour: "orange", age: 45, id: 2 },
     { name: "luigi", beltColour: "brown", age: 35, id: 3 },
   ];
+
+  const handleClick = (id) => {
+    //delete the person from people, if id not equal to selected, keep id, else, filter out
+    //need to reassign people
+    people = people.filter((el) => el.id !== id);
+  };
 </script>
 
 <main>
@@ -13,6 +19,12 @@
     <div>
       <h4>{person.name}</h4>
       <p>{person.age} years old, {person.beltColor} belt.</p>
+      <!-- here we use backpack to return a function without invoking it -->
+      <button
+        on:click={() => {
+          handleClick(person.id);
+        }}>delete</button
+      >
     </div>
     <!-- if there is no element in people -->
   {:else}
