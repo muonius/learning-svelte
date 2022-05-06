@@ -12,7 +12,7 @@
 
 <main>
   <h1>Hello {name}!</h1>
-  <p>{beltColor} belt</p>
+  <p style="color:{beltColor}">{beltColor} belt</p>
   <button on:click={handleClick}>update belt color</button>
   <!-- two way binding shorthand -->
   <input type="text" bind:value={beltColor} />
