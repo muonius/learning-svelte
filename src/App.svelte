@@ -9,10 +9,22 @@
   const handleClick = (e, id) => {
     //delete the person from people, if id not equal to selected, keep id, else, filter out
     //need to reassign people
-    people = people.filter((el) => el.id !== id);
+    people = people.filter((el) => el.id != id);
     console.log(e);
   };
+
+  let num = 5;
 </script>
+
+<!-- if check -->
+
+{#if num > 20}
+  <p>Greater than 20</p>
+{:else if num > 5}
+  <p>Greater than 5</p>
+{:else}
+  <p>Not Greater than 5</p>
+{/if}
 
 <main>
   <!-- Svelte loop template -->
