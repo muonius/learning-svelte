@@ -1,13 +1,14 @@
 <script>
   //create props
   export let message = "default value";
-  let showModal = true;
+  export let showModal = false;
   export let isPromo = false;
 </script>
 
 {#if showModal}
-  <!-- conditional styling promo class -->
-  <div class="backdrop" class:promo={isPromo}>
+  <!-- event forwarding, when we don't say anything on:click -->
+  <!-- when on:click says nothing, it will forward to where the component is defined in App.svelte -->
+  <div class="backdrop" class:promo={isPromo} on:click>
     <div class="modal"><p>{message}</p></div>
   </div>
 {/if}
