@@ -1,12 +1,14 @@
 <script>
+  //create props
+  export let message = "default value";
   let showModal = true;
-  let isPromo = true;
+  export let isPromo = false;
 </script>
 
 {#if showModal}
   <!-- conditional styling promo class -->
   <div class="backdrop" class:promo={isPromo}>
-    <div class="modal"><p>Sign up for offers!</p></div>
+    <div class="modal"><p>{message}</p></div>
   </div>
 {/if}
 
