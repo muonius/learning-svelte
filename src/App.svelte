@@ -18,11 +18,18 @@
     console.log(e);
   };
 
+  const addPerson = (e) => {
+    const person = e.detail;
+    //need to reassign people for Svelte update
+    //so reassign people arr, udpate in the following way
+    people = [person, ...people];
+    showModal = false;
+  };
   let num = 5;
 </script>
 
 <Modal {showModal} on:click={toggleModal}>
-  <AddPersonForm />
+  <AddPersonForm on:addPerson={addPerson} />
 </Modal>
 <main>
   <!-- | once this event handler will only trigger once -->

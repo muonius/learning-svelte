@@ -17,7 +17,7 @@
       <!-- slots that don't have names-->
       <slot />
       <!-- named slot -->
-      <slot name="title" />
+      <!-- <slot name="title" /> -->
     </div>
   </div>
 {/if}
