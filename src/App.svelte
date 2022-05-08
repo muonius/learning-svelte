@@ -19,7 +19,18 @@
   let num = 5;
 </script>
 
-<Modal message="Hey there again" {showModal} on:click={toggleModal} />
+<Modal {showModal} on:click={toggleModal}>
+  <!-- <h3>Add a New Person</h3> -->
+  <form action="">
+    <input type="text" placeholder="name" />
+    <input type="text" placeholder="belt color" />
+    <button>Add Person</button>
+  </form>
+  <!-- Named slots -->
+  <!-- <div slot="title">
+    <h3>Add a New Person</h3> -->
+  <!-- </div> -->
+</Modal>
 <main>
   <!-- | once this event handler will only trigger once -->
 

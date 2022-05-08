@@ -4,7 +4,7 @@
   // once - makes sure the event can only fire once (removes handler)
   // preventDefault - prevent the default action (run e.preventDefault())
   // self - only fires the event if the clicked element is the target
-  export let message = "default value";
+
   export let showModal = false;
   export let isPromo = false;
 </script>
@@ -13,7 +13,12 @@
   <!-- |self means only when click on this div will the event fire -->
 
   <div class="backdrop" class:promo={isPromo} on:click|self>
-    <div class="modal"><p>{message}</p></div>
+    <div class="modal">
+      <!-- slots that don't have names-->
+      <slot />
+      <!-- named slot -->
+      <slot name="title" />
+    </div>
   </div>
 {/if}
 
