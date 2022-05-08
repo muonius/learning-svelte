@@ -1,14 +1,18 @@
 <script>
-  //create props
+  // stopPropagation - stop the event bubbling or capturing any further
+  // capture - fires the handler during the capture phase not bubbling
+  // once - makes sure the event can only fire once (removes handler)
+  // preventDefault - prevent the default action (run e.preventDefault())
+  // self - only fires the event if the clicked element is the target
   export let message = "default value";
   export let showModal = false;
   export let isPromo = false;
 </script>
 
 {#if showModal}
-  <!-- event forwarding, when we don't say anything on:click -->
-  <!-- when on:click says nothing, it will forward to where the component is defined in App.svelte -->
-  <div class="backdrop" class:promo={isPromo} on:click>
+  <!-- |self means only when click on this div will the event fire -->
+
+  <div class="backdrop" class:promo={isPromo} on:click|self>
     <div class="modal"><p>{message}</p></div>
   </div>
 {/if}
